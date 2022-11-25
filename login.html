@@ -142,18 +142,25 @@
                     <button class="btn btn-default btn-primary">Iniciar seción</button>
                 </form>
             </div>
+<!--TABLA Formulario  -->       
+<!--TABLA Formulario  -->       
             <div class="column">
                 <h2 class="is-size-4">Registro</h2>
-                <form action="#" class="form-control">
-                    <input type="email" placeholder="Email" class="form-control-field">
-
-                    <input type="password" placeholder="Password" class="form-control-field">
-
-                    <input type="password" placeholder="Confirma tu password" class="form-control-field">
-                        
-                    <button class="btn btn-default btn-primary">Crear cuenta</button>
+                <form action="registro.php" method="POST" class="form-control">
+        
+                     <!--<input type="email" placeholder="Email" class="form-control-field">-->
+                    <input type="email" name="correo" placeholder="correo" class="form-control-field" required>
+                    <!--<input type="password" placeholder="Password" class="form-control-field">-->
+                    <input type="password" name="contraseña" placeholder="contraseña" class="form-control-field" required>
+                    <!--<input type="password" placeholder="Confirma tu password" class="form-control-field">-->
+                    <input type="password" textarea name="contraseña2" placeholder="contraseña2" class="form-control-field" required>
+                              
+                     <button type="submit" value="Enviar" class="btn btn-default btn-primary">Crear cuenta</button>
                 </form>
             </div>
+
+
+
         </div>
     </div>
 
