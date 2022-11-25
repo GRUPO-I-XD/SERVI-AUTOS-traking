@@ -14,3 +14,6 @@ git add .
 
 // Crear commit (fotografía del proyecto en ese momento)
 git commit -m "primer commit"
+
+// Muestra la lista de commit del mas reciente al más antigüo
+git log
