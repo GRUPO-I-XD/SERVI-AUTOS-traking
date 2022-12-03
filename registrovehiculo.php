@@ -21,7 +21,7 @@
     if(!$conectar){
         echo"No se pudo conectar con el servidor";
     }else{
-        $base=mysqli_select_db($conectar, $baseDeDatos); //'registroclientes'
+        $base=mysqli_select_db($conectar, $baseDeDatos); //'registroautos'
         if(!$base){
             echo"No se encontro la base de datos";
         }
@@ -29,13 +29,13 @@
 
 
     //Recuperar las variable del formulario
-    $correo=$_POST['correo'];
-    $contraseña=$_POST['contraseña'];
-    $contraseña2=$_POST['contraseña2'];
+    $marca=$_POST['marca'];
+    $modelo=$_POST['modelo'];
+    $valor=$_POST['valor'];
 
     //hacemos la sentencia de sql para guardar los datos en la base de datos
-    $sql="INSERT INTO registroclientes (correo, contraseña, contraseña2) 
-          VALUES('$correo','$contraseña','$contraseña2')";
+    $sql="INSERT INTO registroautos (marca, modelo, valor) 
+          VALUES('$marca','$modelo','$valor')";
    
     //Ejecutamos la sentencia
     $ejecutar=mysqli_query($conectar,$sql);
@@ -54,11 +54,11 @@
 			<table>
 				<tr>
 					<th>email</th>
-					<th>contraseña</th>
-					<th>contraseña2</th>
+					<th>modelo</th>
+					<th>valor</th>
 				</tr>
 					<?php
-						$consulta= "SELECT * FROM registroclientes"; /*Vamos hacer una consulta a la base de atos "datos" (selecciona todos los datos de la table datos*/
+						$consulta= "SELECT * FROM registroautos"; /*Vamos hacer una consulta a la base de atos "datos" (selecciona todos los datos de la table datos*/
 						$ejecutarConsulta =mysqli_query($conectar, $consulta); /*ejecutamos la consulta para mostrar tods los datos de datos */
 						$verFilas=mysqli_num_rows($ejecutarConsulta);/*Consulatr si  "datos " tiene datos, cuantas lineas o dato saco de la tabla de datos  */
 						$fila=mysqli_fetch_array($ejecutarConsulta); /*trae lo de la consulta por medioe de $ejecutarConsulta,  en un array y guarde lo en la var fila*/
@@ -70,8 +70,8 @@
 							echo"Error en la consulta";
 						}else{
 							if($verFilas<1){ /*Si no hay registr ejecurta el sgt. codigo */
-								echo"<tr><td> Sin registroclientess </td></tr>";
-							}else{/**Si hay registroclientes hacer lo sgt */
+								echo"<tr><td> Sin registroautoss </td></tr>";
+							}else{/**Si hay registroautos hacer lo sgt */
 								for($i=0; $i<=$fila; $i++ ) {
 									echo'
 										<tr>

@@ -117,7 +117,6 @@
                     <li class="nav-menu-item"><a href="lookbook.html" class="nav-menu-link">Volquetas</a></li>
                     <li class="nav-menu-item"><a href="login.html" class="nav-menu-link active">Registro</a></li>
                     <li class="nav-menu-item"><a href="login.html" class="nav-menu-link">Iniciar Sesión</a></li>
-                    <li class="nav-menu-item"><a href="registrovehiculos.php" class="nav-menu-link active"> Registro Carro</a></li>
                 </ul>
             </nav>
         </nav>
@@ -133,39 +132,53 @@
     <div class="container">
         <div class="columns">
             <div class="column">
-                <h2 class="is-size-4">Iniciar seción</h2>
-                <form action="#" class="form-control">
-
-                    <input type="email" placeholder="Email" class="form-control-field error">
-
-                    <input type="password" placeholder="Password" class="form-control-field">
-
-                    <button class="btn btn-default btn-primary">Iniciar seción</button>
-                </form>
-            </div>
-<!--TABLA Formulario  -->       
-<!--TABLA Formulario  -->       
-            <div class="column">
-                <h2 class="is-size-4">Registro</h2>
-                <form action="registro.php" method="POST" class="form-control">
+                <h2 class="is-size-4">Registrar Vehiculos</h2>
+                <form action="registrovehiculo.php" method="POST" class="form-control">
         
                      <!--<input type="email" placeholder="Email" class="form-control-field">-->
-                    <input type="email" name="correo" placeholder="correo" class="form-control-field" required>
+                    <input type="modelo" name="marca" placeholder="marca" class="form-control-field" required>
                     <!--<input type="password" placeholder="Password" class="form-control-field">-->
-                    <input type="password" name="contraseña" placeholder="contraseña" class="form-control-field" required>
+                    <input type="modelo" name="modelo" placeholder="modelo" class="form-control-field" required>
                     <!--<input type="password" placeholder="Confirma tu password" class="form-control-field">-->
-                    <input type="password" textarea name="contraseña2" placeholder="contraseña2" class="form-control-field" required>
+                    <input type="valor" textarea name="valor" placeholder="valor" class="form-control-field" required>
                               
-                     <button type="submit" value="Enviar" class="btn btn-default btn-primary">Crear cuenta</button>
+                     <button type="submit" value="Enviar" class="btn btn-default btn-primary">Ingresar Vehiculo</button>
                 </form>
             </div>
+<!--TABLA Formulario  -->       
 
 
-
+<!--TABLA Formulario  -->       
+            <div class="column">
+                <?php
+                // Te recomiendo utilizar esta conección, la que utilizas ya no es la recomendada. 
+                $link = new PDO('mysql:host=localhost;dbname=registros', 'root', ''); // el campo vaciío es para la password.
+                ?>
+                <table class="table table-striped">
+                     
+                        <thead>
+                        <tr>
+                            <th>marca</th>
+                            <th>modelo</th>
+                            <th>valor</th>     
+                        </tr>
+                        </thead>
+                <?php foreach ($link->query('SELECT * from registroautos') as $row){ // aca puedes hacer la consulta e iterarla con each. ?> 
+                <tr>
+                    <td><?php echo $row['marca'] // aca te faltaba poner los echo para que se muestre el valor de la variable.  ?></td>
+                    <td><?php echo $row['modelo'] ?></td>
+                    <td><?php echo $row['valor'] ?></td>
+                 </tr>
+                <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
 
-    <!-- footer -->
+
+<!-- footer 
+    
     <footer class="footer">
         <div class="container">
             <div class="columns is-multiline">
@@ -244,7 +257,8 @@
                 
             </div>
         </div>
-<!--
+-->
+        <!--
         <div class="footer-bar-top">
             <div class="container">
                 <a class="footer-bar-top-links" href="#">2019 SERVI-AUTOS tracking</a>
