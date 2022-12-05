@@ -1,7 +1,7 @@
 https://bluuweb.github.io/tutorial-github/01-fundamentos/#comandos-basicos
-hola 
+ 
 git version
-
+//Manual express para los colaboradores 
 // Iniciar un nuevo repositorio
 // Crear la carpeta oculta .git
 git init
@@ -18,4 +18,7 @@ git commit -m "primer commit"
 // Muestra la lista de commit del mas reciente al más antigüo
 git log
 
-// 
+// Ingresa informacion al repositorio
+git push
+
+
